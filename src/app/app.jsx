@@ -1,7 +1,7 @@
 const {app, autoUpdater} = require('electron').remote;
 import React from 'react';
 
-const server = 'https://hazel-server-jmcpkzydxa.now.sh';
+const server = 'https://hazel-server-ddhpovizsv.now.sh';
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`;
 try {
     autoUpdater.setFeedURL(feed);
