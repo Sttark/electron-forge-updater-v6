@@ -24,6 +24,7 @@ module.exports = {
         {
             name: '@electron-forge/publisher-github',
             config: {
+                draft: false,
                 repository: {
                     owner: 'mergeweb',
                     name: 'electron-forge-updater-v6'
