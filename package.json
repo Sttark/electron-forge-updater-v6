@@ -15,31 +15,7 @@
   "author": "mike",
   "license": "MIT",
   "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "electron_forge_updater_v6"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
+    "forge": "./forge.config.js"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
@@ -50,6 +26,7 @@
     "@electron-forge/maker-rpm": "6.0.0-beta.30",
     "@electron-forge/maker-squirrel": "6.0.0-beta.30",
     "@electron-forge/maker-zip": "6.0.0-beta.30",
+    "@electron-forge/publisher-github": "^6.0.0-beta.22",
     "electron": "3.0.10"
   },
   "prettier": {
