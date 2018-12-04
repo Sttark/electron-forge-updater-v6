@@ -1,3 +1,10 @@
+### Auto Updating
+
+* Must be signed
+* `IDENTITY='LOCAL APPLE DEV ID' GITHUB_TOKEN='PersonalAccess Token' npm run publish`
+
+
+
 ### Stuff
 
 * Setup the update server
