@@ -1,8 +1,12 @@
 const webpackPlugin = require('./webpack.config');
+const process = require('process');
 
 module.exports = {
     packagerConfig: {
         name: 'Frontierlabel Bacon MakerTest',
+        osxSign: {
+            identity: process.env.IDENTITY
+        },
         appBundleId: 'com.frontierlabel.ffautotest',
         packageManager: 'npm',
         protocols: [
