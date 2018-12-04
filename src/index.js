@@ -1,4 +1,5 @@
 const {app, BrowserWindow, autoUpdater, dialog} = require('electron');
+import {enableLiveReload} from 'electron-compile';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -11,8 +12,6 @@ if (require('electron-squirrel-startup')) {
 let mainWindow;
 
 const isDevMode = process.execPath.match(/[\\/]electron/);
-
-if (isDevMode) enableLiveReload({strategy: 'react-hmr'});
 
 const createWindow = () => {
     // Create the browser window.
