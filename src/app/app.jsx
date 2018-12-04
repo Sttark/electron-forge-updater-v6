@@ -1,14 +1,17 @@
 const {app, autoUpdater} = require('electron').remote;
 import React from 'react';
 
-const server = 'https://hazel-server-jmcpkzydxa.now.sh/';
+const server = 'https://hazel-server-jmcpkzydxa.now.sh';
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`;
+console.log(feed);
+autoUpdater.setFeedURL(feed);
 
 export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: ''
+            message: '',
+            color: this.getRandomColor()
         };
     }
 
@@ -17,6 +20,15 @@ export default class extends React.Component {
         autoUpdater.on('update-available', this.handleUpdateAvailable);
         autoUpdater.on('update-not-available', this.handleUpdateNotAvailable);
     }
+
+    getRandomColor = () => {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
 
     handleCheckingForUpdate = data => {
         console.log(data);
@@ -32,13 +44,13 @@ export default class extends React.Component {
     };
 
     handleCheckForUpdates = () => {
-        console.log('check forrest updates');
+        this.setState({message: 'Checcckigngingingg.', color: this.getRandomColor()});
         autoUpdater.checkForUpdates();
     };
 
     render() {
         return (
-            <div>
+            <div style={{color: this.state.color}}>
                 <button onClick={this.handleCheckForUpdates}>UPDATE</button>
                 Test More Hotttttttzzz. {app.getVersion()} <div>{this.state.message}</div>
             </div>

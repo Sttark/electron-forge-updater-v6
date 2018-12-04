@@ -1,7 +1,17 @@
 const webpackPlugin = require('./webpack.config');
 
 module.exports = {
-    packagerConfig: {},
+    packagerConfig: {
+        name: 'Frontierlabel Bacon MakerTest',
+        appBundleId: 'com.frontierlabel.ffautotest',
+        packageManager: 'npm',
+        protocols: [
+            {
+                name: 'ffautotest',
+                schemes: 'ffautotest'
+            }
+        ]
+    },
     makers: [
         {
             name: '@electron-forge/maker-squirrel',
