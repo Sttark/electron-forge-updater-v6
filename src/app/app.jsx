@@ -32,6 +32,7 @@ export default class extends React.Component {
     };
 
     handleCheckForUpdates = () => {
+        console.log('check forrest updates');
         autoUpdater.checkForUpdates();
     };
 
