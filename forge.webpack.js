@@ -31,9 +31,9 @@ module.exports = new WebpackPlugin({
         prefixedEntries: process.env.NODE_ENV === 'production' ? [] : ['react-hot-loader/patch'],
         entryPoints: [
             {
+                name: 'Main Window',
                 html: path.resolve(__dirname, 'src/index.html'),
-                js: path.resolve(__dirname, 'src/renderer.jsx'),
-                name: 'Main Window'
+                js: path.resolve(__dirname, 'src/renderer.jsx')
             }
         ]
     }

@@ -1,4 +1,4 @@
-const webpackPlugin = require('./webpack.config');
+const webpackPlugin = require('./forge.webpack');
 const process = require('process');
 
 module.exports = {

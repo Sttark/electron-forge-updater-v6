@@ -3,8 +3,11 @@ import React from 'react';
 
 const server = 'https://hazel-server-jmcpkzydxa.now.sh';
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`;
-console.log(feed);
-autoUpdater.setFeedURL(feed);
+try {
+    autoUpdater.setFeedURL(feed);
+} catch (e) {
+    console.log('auto update not available');
+}
 
 export default class extends React.Component {
     constructor(props) {
@@ -52,7 +55,7 @@ export default class extends React.Component {
         return (
             <div style={{color: this.state.color}}>
                 <button onClick={this.handleCheckForUpdates}>UPDATE</button>
-                Test More Hotttttttzzz. {app.getVersion()} <div>{this.state.message}</div>
+                Test More Live {app.getVersion()} <div>{this.state.message}</div>
             </div>
         );
     }
