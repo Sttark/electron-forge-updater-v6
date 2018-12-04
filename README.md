@@ -22,8 +22,7 @@
 * https://v6.electronforge.io/configuration
 * https://v6.electronforge.io/auto-update
 
-
-
 Webpack has a main config and a renderer config
 * https://v6.electronforge.io/plugins/webpack
 * https://js.electronforge.io/plugin/webpack/interfaces/webpackpluginconfig
+
