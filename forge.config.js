@@ -14,7 +14,8 @@ module.exports = {
                 name: 'ffautotest',
                 schemes: 'ffautotest'
             }
-        ]
+        ],
+        ignore: ['/test', '/vendor', 'composer.json', 'composer.lock', 'src', 'out']
     },
     makers: [
         {
