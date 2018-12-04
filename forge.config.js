@@ -1,3 +1,5 @@
+const webpackPlugin = require('./webpack.config');
+
 module.exports = {
     packagerConfig: {},
     makers: [
@@ -20,6 +22,7 @@ module.exports = {
             config: {}
         }
     ],
+    plugins: [webpackPlugin],
     publishers: [
         {
             name: '@electron-forge/publisher-github',
