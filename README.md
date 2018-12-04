@@ -1,6 +1,8 @@
 ### Auto Updating
 
 * Must be signed
+* `npm version patch`
+* `git push --tags && git push`
 * `IDENTITY='LOCAL APPLE DEV ID' GITHUB_TOKEN='PersonalAccess Token' npm run publish`
 
 
