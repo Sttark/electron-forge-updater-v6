@@ -1,7 +1,7 @@
-const {app, autoUpdater} = require('electron').remote;
+const {app, autoUpdater, dialog} = require('electron').remote;
 import React from 'react';
 
-const server = 'https://hazel-server-ddhpovizsv.now.sh';
+const server = 'http://localhost:3000';
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`;
 try {
     autoUpdater.setFeedURL(feed);
@@ -22,6 +22,8 @@ export default class extends React.Component {
         autoUpdater.on('checking-for-update', this.handleCheckingForUpdate);
         autoUpdater.on('update-available', this.handleUpdateAvailable);
         autoUpdater.on('update-not-available', this.handleUpdateNotAvailable);
+        autoUpdater.on('update-downloaded', this.handleInstall);
+        autoUpdater.on('error', this.handleDownloadError);
     }
 
     getRandomColor = () => {
@@ -33,13 +35,32 @@ export default class extends React.Component {
         return color;
     };
 
+    handleDownloadError = error => {
+        console.log(error);
+        this.setState({message: 'error'});
+    };
+
+    handleInstall = (event, releaseNotes, releaseName) => {
+        const dialogOpts = {
+            type: 'info',
+            buttons: ['Restart', 'Later'],
+            title: 'Application Update',
+            message: process.platform === 'win32' ? releaseNotes : releaseName,
+            detail:
+                'A new version has been downloaded. Restart the application to apply the updates.'
+        };
+
+        dialog.showMessageBox(dialogOpts, response => {
+            if (response === 0) autoUpdater.quitAndInstall();
+        });
+    };
+
     handleCheckingForUpdate = data => {
         console.log(data);
         this.setState({message: 'Checking For Update'});
     };
     handleUpdateAvailable = data => {
-        console.log(data);
-        this.setState({message: 'update available'});
+        this.setState({message: 'Update available zzzz'});
     };
     handleUpdateNotAvailable = data => {
         console.log(data);
